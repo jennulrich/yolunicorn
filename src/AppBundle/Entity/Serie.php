@@ -49,6 +49,11 @@ class Serie
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="series")
+     */
+    private $genres;
+
 
     /**
      * Get id
@@ -154,6 +159,22 @@ class Serie
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    /**
+     * @param mixed $genres
+     */
+    public function setGenres($genres)
+    {
+        $this->genres = $genres;
     }
 }
 

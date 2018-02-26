@@ -9,7 +9,12 @@
 namespace AppBundle\Controller;
 
 
-class GenreController
+
+use AppBundle\Entity\Genre;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class GenreController extends Controller
 {
 
 }

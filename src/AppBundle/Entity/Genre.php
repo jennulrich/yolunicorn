@@ -28,7 +28,15 @@ class Genre
      */
     private $genreCat;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", mappedBy="genres")
+     */
+    private $films;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Serie", mappedBy="genres")
+     */
+    private $series;
     /**
      * Get id
      *
@@ -62,5 +70,38 @@ class Genre
     {
         return $this->genreCat;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFilms()
+    {
+        return $this->films;
+    }
+
+    /**
+     * @param mixed $films
+     */
+    public function setFilms($films)
+    {
+        $this->films = $films;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeries()
+    {
+        return $this->series;
+    }
+
+    /**
+     * @param mixed $series
+     */
+    public function setSeries($series)
+    {
+        $this->series = $series;
+    }
+
 }
 
