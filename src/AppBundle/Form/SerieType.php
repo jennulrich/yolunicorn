@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: jennou
+ * Date: 26/02/2018
+ * Time: 19:00
+ */
 
 namespace AppBundle\Form;
 
@@ -11,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
-class FilmType extends AbstractType
+class SerieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,11 +27,11 @@ class FilmType extends AbstractType
             ->add('acteur', TextType::class)
             ->add('description',TextareaType::class)
             ->add('genres', EntityType::class,  [
-                    'class' => Genre::class,
-                    'choice_label' => 'genreCat',
-                    'expanded' => true,
-                    'multiple' => true
-                ])
-            ->add('save', SubmitType::class, ['label' => 'Ajouter un Film']);
+                'class' => Genre::class,
+                'choice_label' => 'genreCat',
+                'expanded' => true,
+                'multiple' => true
+            ])
+            ->add('save', SubmitType::class, ['label' => 'Ajouter une série']);
     }
 }
