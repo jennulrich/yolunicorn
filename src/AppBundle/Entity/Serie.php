@@ -54,6 +54,12 @@ class Serie
      */
     private $genres;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Saison", inversedBy="series")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $saisons;
+
 
     /**
      * Get id
@@ -175,6 +181,22 @@ class Serie
     public function setGenres($genres)
     {
         $this->genres = $genres;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSaisons()
+    {
+        return $this->saisons;
+    }
+
+    /**
+     * @param mixed $saisons
+     */
+    public function setSaisons($saisons)
+    {
+        $this->saisons = $saisons;
     }
 }
 
