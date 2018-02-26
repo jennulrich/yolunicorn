@@ -33,4 +33,11 @@ class SaisonFixtures extends Fixture
         }
         $manager->flush();
     }
+
+    public function getDependencies()
+    {
+        return array(
+            SerieFixtures::class,
+        );
+    }
 }

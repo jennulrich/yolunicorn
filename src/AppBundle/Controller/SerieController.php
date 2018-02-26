@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\DataFixtures\SerieFixtures;
 use AppBundle\Entity\Serie;
 use AppBundle\Form\SerieType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -92,4 +93,6 @@ class SerieController extends Controller
             'form' => $form->createView()
         ]);
     }
+
+
 }

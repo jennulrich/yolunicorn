@@ -54,6 +54,10 @@ class Serie
      */
     private $genres;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Saison", mappedBy="series") */
+    private $saisons;
+
 
     /**
      * Get id
@@ -175,6 +179,29 @@ class Serie
     public function setGenres($genres)
     {
         $this->genres = $genres;
+    }
+
+    /**
+     * Get saisons
+     *
+     * @return string
+     */
+    public function getSaisons()
+    {
+        return $this->saisons;
+    }
+
+    /**
+     * Set saisons
+     *
+     * @param string $saisons
+     *
+     * @return Serie
+     */
+    public function setSaisons($saisons)
+    {
+        $this->saisons = $saisons;
+        return $this;
     }
 }
 
