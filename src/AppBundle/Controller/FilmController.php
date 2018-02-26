@@ -12,6 +12,19 @@ use Symfony\Component\HttpFoundation\Request;
 class FilmController extends Controller
 {
     /**
+     * @Route("/films/{id}", name="film_view", requirements={"id"="\d+"})
+     */
+    public function viewAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $film = $em->getRepository(Film::class)
+            ->find($id);
+        return $this->render('film/viewFilm.html.twig', [
+            'film' =>$film
+        ]);
+    }
+
+    /**
      * @Route("/films", name="film_list")
      */
     public function listAction()
@@ -50,7 +63,7 @@ class FilmController extends Controller
 
     //Modifier Film
     /**
-     * @Route("/film/{id}/edit", name="film_edit", requirements={"id"="\d+"})
+     * @Route("/films/{id}/edit", name="film_edit", requirements={"id"="\d+"})
      */
     public function EditAction($id, Request $request)
     {
