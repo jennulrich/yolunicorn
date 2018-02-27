@@ -13,12 +13,13 @@
     {% endblock %}
 </head>
 <body>
+<a style="background-color: black;  padding:10px; text-decoration: none; color:white;" href="{{ path('film_list') }}"> < Retour aux Films</a>
     <h1>{{ film.titre }}</h1>
     <p>{{ film.annee|date("d/m/Y") }}</p>
     {% for genre in film.genres %}
-        <p>Genre : {{ genre.genreCat }}</p>
+        <p><strong>Genre :</strong> {{ genre.genreCat }}</p>
     {% endfor %}
-    <p>Acteurs : {{ film.acteur }}</p>
+<p><strong>Acteurs : </strong>{{ film.acteur }}</p>
     <p>{{ film.description }}</p>
 </body>
 </html>
