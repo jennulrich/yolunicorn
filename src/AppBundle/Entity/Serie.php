@@ -50,9 +50,13 @@ class Serie
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="series")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="serie")
      */
     private $genres;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Saison", mappedBy="serie") */
+    private $saisons;
 
 
     /**
@@ -175,6 +179,29 @@ class Serie
     public function setGenres($genres)
     {
         $this->genres = $genres;
+    }
+
+    /**
+     * Get saisons
+     *
+     * @return string
+     */
+    public function getSaisons()
+    {
+        return $this->saisons;
+    }
+
+    /**
+     * Set saisons
+     *
+     * @param string $saisons
+     *
+     * @return Serie
+     */
+    public function setSaisons($saisons)
+    {
+        $this->saisons = $saisons;
+        return $this;
     }
 }
 

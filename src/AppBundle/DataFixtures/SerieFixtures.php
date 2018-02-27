@@ -81,6 +81,7 @@ class SerieFixtures extends Fixture
         ];
 
         // Ajout des infos de series ($series[]) dans la table "serie" de la base de données
+        $i = 1;
         foreach ($series as $serie) {
             $serieInfo = new Serie();
             $serieInfo
@@ -90,6 +91,8 @@ class SerieFixtures extends Fixture
                 ->setDescription($serie["description"]);
 
             $manager->persist($serieInfo);
+            $this->setReference("serie-".$i, $serieInfo);
+            $i++;
         }
         $manager->flush();
     }

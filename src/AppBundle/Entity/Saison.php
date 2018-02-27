@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Serie;
 
 /**
  * Saison
@@ -24,10 +25,15 @@ class Saison
     /**
      * @var float
      *
-     * @ORM\Column(name="nb_saison", type="float")
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $nbSaison;
+    private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Serie", inversedBy="saisons")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $serie;
 
     /**
      * Get id
@@ -39,29 +45,40 @@ class Saison
         return $this->id;
     }
 
-    /**
-     * Set nbSaison
-     *
-     * @param float $nbSaison
-     *
-     * @return Saison
-     */
-    public function setNbSaison($nbSaison)
-    {
-        $this->nbSaison = $nbSaison;
 
+
+    /**
+     * @return mixed
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
+
+    /**
+     * @param mixed $serie
+     * * @return string
+     */
+    public function setSerie($serie)
+    {
+        $this->serie = $serie;
         return $this;
     }
 
     /**
-     * Get nbSaison
-     *
      * @return float
      */
-    public function getNbSaison()
+    public function getName(): float
     {
-        return $this->nbSaison;
+        return $this->name;
     }
 
+    /**
+     * @param float $name
+     */
+    public function setName(float $name)
+    {
+        $this->name = $name;
+    }
 }
 
