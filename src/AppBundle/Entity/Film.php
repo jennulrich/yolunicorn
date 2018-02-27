@@ -63,12 +63,6 @@ class Film
      */
     private $image;
 
-
-
-
-
-
-
     /**
      * Get id
      *
