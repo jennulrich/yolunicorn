@@ -28,11 +28,6 @@ class Saison
      */
     private $nbSaison;
 
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Serie", mappedBy="saisons")
-     */
-    private $series;
-
 
     /**
      * Get id
@@ -68,20 +63,5 @@ class Saison
         return $this->nbSaison;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
-     * @param mixed $series
-     */
-    public function setSeries($series)
-    {
-        $this->series = $series;
-    }
 }
 
