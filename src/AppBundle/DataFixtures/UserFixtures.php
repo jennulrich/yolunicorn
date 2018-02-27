@@ -17,9 +17,11 @@ class UserFixtures extends Fixture
                 ->setNom('Nom user ' .$i)
                 ->setPrenom('Prenom user ' .$i)
                 ->setAge(mt_rand(18, 75))
-                ->setEmail('user@test.fr')
+                ->setEmail('user'.$i.'@test.fr')
                 ->setPseudo('pseudo ' .$i)
-                ->setPassword('password');
+
+                // password : bcrypt('password')
+                ->setPassword( '$2y$10$LlPMShQH0oM1pYY1UvRCDuVI8Rin8bMhHoSgXinF48dqSsKdJ5LAa');
 
             $manager->persist($user);
         }

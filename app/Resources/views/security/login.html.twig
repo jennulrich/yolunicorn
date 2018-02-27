@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Connexion : </h1>
+    {% if error %}
+        <div>{{ error.messageKey }}</div>
+    {% endif %}
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }} "/>
+        <br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="_password"/>
+        <br>
+        <button type="submit">login</button>
+    </form>
+{% endblock %}

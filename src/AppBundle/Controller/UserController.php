@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Manager\UserManager;
 
 class UserController extends Controller
 {
@@ -31,11 +32,13 @@ class UserController extends Controller
     /**
      * @Route("/user", name="user_list")
      */
-    public function listAction()
+    public function listAction(UserManager $userManager)
     {
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository(User::class)
-            ->findAll();
+        $users = $userManager->getUsers();
+
+        //$em = $this->getDoctrine()->getManager();
+        //$users = $em->getRepository(User::class)->findAll();
+
         return $this->render('user/listUser.html.twig', [
             'users' => $users
         ]);
@@ -47,5 +50,15 @@ class UserController extends Controller
     public function addAction()
     {
 
+    }
+
+    //Test Atelier Geoffrey
+    public function menuAction()
+    {
+        $menus = ["menu 1", "menu 2", "menu 3"];
+
+        return $this->render('menu.html.twig', [
+            'menus' =>$menus
+        ]);
     }
 }

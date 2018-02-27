@@ -45,8 +45,6 @@ class Saison
         return $this->id;
     }
 
-
-
     /**
      * @return mixed
      */
