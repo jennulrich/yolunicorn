@@ -24,12 +24,13 @@ class SaisonFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         // Ajout des données (nombre de saisons, 10 saisons max)
-        for ($i=1; $i<=10; $i++) {
-            $saison = new Saison();
-            $saison
-                ->setNbSaison($i);
-
-            $manager->persist($saison);
+        for ($i=1; $i<=6; $i++) {
+           $serie = $this->getReference("serie-".$i);
+           for ($j=1; $j<=10; $j++) {
+               $saison = new Saison();
+               $saison->setSerie($serie);
+               $saison->setName();
+           }
         }
         $manager->flush();
     }

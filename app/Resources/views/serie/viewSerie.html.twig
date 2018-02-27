@@ -20,6 +20,7 @@
     {% endfor %}
     <p>Acteurs : {{ serie.acteur }}</p>
     <p>{{ serie.description }}</p>
+    <p>Nombre de saisons : {{ serie.saisons|length }}</p>
 
     <a href="{{ path('serie_list') }}">Retour à la liste des series</a>
 </body>

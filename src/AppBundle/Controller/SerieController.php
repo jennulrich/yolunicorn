@@ -26,6 +26,7 @@ class SerieController extends Controller
         $em = $this->getDoctrine()->getManager();
         $serie = $em->getRepository(Serie::class)
             ->find($id);
+
         return $this->render('serie/viewSerie.html.twig', [
             'serie' =>$serie
         ]);
