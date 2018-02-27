@@ -23,7 +23,7 @@ class Saison
     private $id;
 
     /**
-     * @var float
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
@@ -66,15 +66,15 @@ class Saison
     /**
      * @return float
      */
-    public function getName(): float
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @param float $name
+     * @param string $name
      */
-    public function setName(float $name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }

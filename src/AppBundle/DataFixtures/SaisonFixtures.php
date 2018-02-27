@@ -11,9 +11,10 @@ namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\Saison;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class SaisonFixtures extends Fixture
+class SaisonFixtures extends Fixture implements DependentFixtureInterface
 {
 
     /**
@@ -29,7 +30,9 @@ class SaisonFixtures extends Fixture
            for ($j=1; $j<=10; $j++) {
                $saison = new Saison();
                $saison->setSerie($serie);
-               $saison->setName();
+               $saison->setName('Saison ' . $j);
+
+               $manager->persist($saison);
            }
         }
         $manager->flush();
