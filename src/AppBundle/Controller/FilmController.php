@@ -59,6 +59,8 @@ class FilmController extends Controller
         return$this->render('film/addFilm.html.twig', [
             'form' => $form->createView()
         ]);
+
+
     }
 
     //Modifier Film

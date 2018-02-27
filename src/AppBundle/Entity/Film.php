@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Film
@@ -53,6 +54,19 @@ class Film
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="films")
      */
     private $genres;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $image;
+
+
+
+
+
 
 
     /**
@@ -176,5 +190,23 @@ class Film
     {
         $this->genres = $genres;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
 }
 
