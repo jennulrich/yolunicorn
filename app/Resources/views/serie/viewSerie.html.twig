@@ -23,5 +23,7 @@
     <p>Nombre de saisons : {{ serie.saisons|length }}</p>
 
     <a href="{{ path('serie_list') }}">Retour à la liste des series</a>
+    <br>
+    <a href="{{ path('serie_delete', {"id":serie.id}) }}">Delete</a>
 </body>
 </html>

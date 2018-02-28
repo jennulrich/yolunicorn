@@ -95,5 +95,15 @@ class SerieController extends Controller
         ]);
     }
 
+    // Supprimer une serie
+    /**
+     * @Route("/series/{id}/delete", name="serie_delete", requirements={"id"="\d+"})
+     */
+    public function DeleteAction(Serie $serie) {
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($serie);
+        $em->flush();
 
+        return $this->redirectToRoute('serie_list');
+    }
 }

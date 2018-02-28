@@ -24,6 +24,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends Controller
 {
+    // Afficher detail user
     /**
      * @Route("/user/{id}", name="user_view", requirements={"id"="\d+"})
      */
@@ -37,6 +38,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Afficher tous les users
     /**
      * @Route("/user", name="user_list")
      */
@@ -52,6 +54,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Editer un utilisateur
     /**
      * @Route("/user/{id}/edit", name="user_edit", requirements={"id"="\d+"})
      */
@@ -78,6 +81,7 @@ class UserController extends Controller
         ]);
     }
 
+    // inscription user
     /**
      * @Route("/inscription", name="inscription")
      */
@@ -113,6 +117,19 @@ class UserController extends Controller
             'form' => $form->createView()
         ]);
 
+    }
+
+
+    // Supprimer un user
+    /**
+     * @Route("/user/{id}/delete", name="user_delete", requirements={"id"="\d+"})
+     */
+    public function DeleteAction(User $user) {
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        return $this->redirectToRoute('user_list');
     }
 
     //Test Atelier Geoffrey
