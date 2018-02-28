@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,13 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Info USer :</h1>
-        <p>{{ user.nom }}</p>
-        <p>{{ user.prenom }}</p>
-        <p>{{ user.age }} ans</p>
-        <p>Email : {{ user.email }}</p>
-        <p>{{ user.pseudo }}</p>
+{{ form(form) }}
 
-    <a href="{{ path('user_edit', {"id":user.id}) }}">Modifier mes informations</a>
 </body>
 </html>

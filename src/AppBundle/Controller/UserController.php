@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\User;
+use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Manager\UserManager;
@@ -48,6 +49,32 @@ class UserController extends Controller
 
         return $this->render('user/listUser.html.twig', [
             'users' => $users
+        ]);
+    }
+
+    /**
+     * @Route("/user/{id}/edit", name="user_edit", requirements={"id"="\d+"})
+     */
+    public function EditAction($id, Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)
+            ->find($id);
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('user_view', [
+                "id"=>$user->getId(),
+            ]);
+        }
+
+        return $this->render('user/editUser.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
