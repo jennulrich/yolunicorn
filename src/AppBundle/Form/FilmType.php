@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Genre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,6 +27,8 @@ class FilmType extends AbstractType
                     'expanded' => true,
                     'multiple' => true
                 ])
+            ->add('image', FileType::class, array('label' => 'Image(JPG)'))
+            ->add('video', FileType::class, array('label' => 'Video(MP4)'))
             ->add('save', SubmitType::class, ['label' => 'Ajouter un Film']);
     }
 }

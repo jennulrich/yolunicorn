@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Film
@@ -54,6 +55,21 @@ class Film
      */
     private $genres;
 
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg"})
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une vidéo (mp4)")
+     * @Assert\File(mimeTypes={ "video/mp4"})
+     */
+    private $video;
 
     /**
      * Get id
@@ -176,5 +192,40 @@ class Film
     {
         $this->genres = $genres;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param mixed $video
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+        return $this;
+    }
+
 }
 

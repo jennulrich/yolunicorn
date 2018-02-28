@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    files_directory: '%kernel.root_dir%/../uploads/files'
 
 framework:
     #esi: ~
@@ -134,3 +135,4 @@ assetic:
                 - "%kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.woff"
 
             output: "fonts/glyphicons-halflings-regular.woff"
+

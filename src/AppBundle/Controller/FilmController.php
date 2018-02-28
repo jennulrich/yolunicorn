@@ -6,6 +6,7 @@ use AppBundle\Entity\Film;
 use AppBundle\Form\FilmType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -70,6 +71,8 @@ class FilmController extends Controller
         $em=$this->getDoctrine()->getManager();
         $addFilm = $em->getRepository(Film:: class)
             ->find($id);
+        $addFilm->setImage(null);
+        $addFilm->setVideo(null);
         $form = $this->createForm(FilmType::class, $addFilm);
 
         $form->handleRequest($request);
@@ -84,5 +87,27 @@ class FilmController extends Controller
         return $this->render('film/editFilm.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/films/{id}/image", name="film_image", requirements={"id"="\d+"})
+     */
+    public function ImageViewAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $film = $em->getRepository(Film::class)
+            ->find($id);
+        $file = $this->getParameter("files_directory")."/".$film->getImage();
+        return new BinaryFileResponse($file);
+    }
+
+    /**
+     * @Route("/films/{id}/video", name="film_video", requirements={"id"="\d+"})
+     */
+    public function VideoViewAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $film = $em->getRepository(Film::class)
+            ->find($id);
+        $file = $this->getParameter("files_directory")."/".$film->getVideo();
+        return new BinaryFileResponse($file);
     }
 }
