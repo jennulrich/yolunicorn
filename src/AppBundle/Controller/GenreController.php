@@ -96,4 +96,15 @@ class GenreController extends Controller
         ]);
     }
 
+    // Supprimer un genre
+    /**
+     * @Route("/genre/{id}/delete", name="genre_delete", requirements={"id"="\d+"})
+     */
+    public function DeleteAction(Genre $genre) {
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($genre);
+        $em->flush();
+
+        return $this->redirectToRoute('genre_list');
+    }
 }

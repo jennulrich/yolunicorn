@@ -2,4 +2,9 @@
 
 {% block content %}
 <h1>{{ genre.genreCat }}</h1>
+
+
+    <p>Suppression pour la partie admin uniquement</p>
+
+    <a href="{{ path('genre_delete', {"id":genre.id}) }}">Delete</a>
 {% endblock %}
