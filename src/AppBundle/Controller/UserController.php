@@ -13,6 +13,13 @@ use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Manager\UserManager;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends Controller
 {
@@ -45,10 +52,39 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/add", name="user_add")
+     * @Route("/inscription", name="inscription")
      */
-    public function addAction()
+    public function addActionInscription(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $user = new User();
+
+        $form = $this->createFormBuilder($user)
+            ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
+            ->add('age', NumberType::class)
+            ->add('email', TextType::class)
+            ->add('pseudo', TextType::class)
+            ->add('password', PasswordType::class)
+            ->add('save', SubmitType:: class, ['label' => 'Inscription'])
+            ->getForm();
+
+        $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()){
+                $user = $form->getData();
+                $em = $this->getDoctrine()->getManager();
+
+                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($password);
+
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirectToRoute('film_list');
+            }
+
+        return $this->render('user/addUser.html.twig', [
+            'form' => $form->createView()
+        ]);
 
     }
 
