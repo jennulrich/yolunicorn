@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    files_directory: '%kernel.root_dir%/../uploads/files'
 
 framework:
     #esi: ~
@@ -135,12 +136,3 @@ assetic:
 
             output: "fonts/glyphicons-halflings-regular.woff"
 
-
-# app/config/config.yml
-vich_uploader:
-    db_driver: orm
-    mappings:
-            films:
-                uri_prefix: /films/
-                upload_destination: '%kernel.root_dir%/films/'
-                namer: vich_uploader.namer_uniqid
