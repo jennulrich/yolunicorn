@@ -72,6 +72,7 @@ class FilmController extends Controller
         $addFilm = $em->getRepository(Film:: class)
             ->find($id);
         $addFilm->setImage(null);
+        $addFilm->setVideo(null);
         $form = $this->createForm(FilmType::class, $addFilm);
 
         $form->handleRequest($request);
