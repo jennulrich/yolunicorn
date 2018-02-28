@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Genre;
+use AppBundle\Form\GenreType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,12 +54,10 @@ class GenreController extends Controller
     public function addAction(Request $request)
     {
         $genre = new Genre();
-        $form = $this->createFormBuilder($genre)
-            ->add('genre_cat', TextType:: class)
-            ->add('save', SubmitType:: class, ['label' => 'Ajouter une catégorie'])
-            ->getForm();
 
+        $form = $this->createForm(GenreType::class, $genre);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()){
             $genre = $form->getData();
             $em = $this->getDoctrine()->getManager();
