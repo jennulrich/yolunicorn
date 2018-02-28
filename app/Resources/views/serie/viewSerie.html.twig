@@ -21,6 +21,9 @@
     <p>Acteurs : {{ serie.acteur }}</p>
     <p>{{ serie.description }}</p>
     <p>Nombre de saisons : {{ serie.saisons|length }}</p>
+    {% for saison in serie.saisons %}
+    <p>Nombre d'episodes : {{ saison.episodes|length }}</p>
+    {% endfor %}
 
     <a href="{{ path('serie_list') }}">Retour à la liste des series</a>
     <br>

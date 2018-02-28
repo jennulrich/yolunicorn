@@ -79,7 +79,9 @@ class FilmFixtures extends Fixture
                 ->setTitre($film['titre'])
                 ->setAnnee(new \DateTime($film['annee']))
                 ->setActeur($film['acteur'])
-                ->setDescription($film['description']);
+                ->setDescription($film['description'])
+                ->setVideo(null)
+                ->setImage(null);
 
             $manager->persist($filmInfo);
         }
