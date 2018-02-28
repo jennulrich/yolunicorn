@@ -22,6 +22,7 @@
     <p><strong>Acteurs : </strong>{{ film.acteur }}</p>
     {% if film.image is not null %}
         <img src="{{ path("film_image", {"id":film.id}) }}" height="100px" width="250px" alt="{{ film.titre }}">
+        <video controls src="{{ path("film_video", {"id":film.id}) }}" height="400px" width="600px"></video>
     {% endif %}
     <p>{{ film.description }}</p>
 </body>

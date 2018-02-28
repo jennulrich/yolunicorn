@@ -43,14 +43,29 @@ class UploadFileListener
             return;
         }
 
-        $file = $entity->getImage();
+        // Pour upload image
+        $fileImage = $entity->getImage();
 
         // only upload new files
-        if (!$file instanceof UploadedFile) {
+        if (!$fileImage instanceof UploadedFile) {
             return;
         }
 
-        $fileName = $this->uploader->upload($file);
-        $entity->setImage($fileName);
+        $fileNameImage = $this->uploader->upload($fileImage);
+        $entity->setImage($fileNameImage);
+
+        // Pour upload video
+        $fileVideo = $entity->getVideo();
+
+        // only upload new files
+        if (!$fileVideo instanceof UploadedFile) {
+            return;
+        }
+
+        $fileNameVideo = $this->uploader->upload($fileVideo);
+        $entity->setVideo($fileNameVideo);
+
+
+
     }
 }

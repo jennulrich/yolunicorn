@@ -59,9 +59,17 @@ class Film
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank(message="Ajouter une image jpg")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @Assert\File(mimeTypes={ "image/jpeg"})
      */
     private $image;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une vidéo (mp4)")
+     * @Assert\File(mimeTypes={ "video/mp4"})
+     */
+    private $video;
 
     /**
      * Get id
@@ -199,6 +207,23 @@ class Film
     public function setImage($image)
     {
         $this->image = $image;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param mixed $video
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
         return $this;
     }
 

@@ -100,4 +100,15 @@ class FilmController extends Controller
         $file = $this->getParameter("files_directory")."/".$film->getImage();
         return new BinaryFileResponse($file);
     }
+
+    /**
+     * @Route("/films/{id}/video", name="film_video", requirements={"id"="\d+"})
+     */
+    public function VideoViewAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $film = $em->getRepository(Film::class)
+            ->find($id);
+        $file = $this->getParameter("files_directory")."/".$film->getVideo();
+        return new BinaryFileResponse($file);
+    }
 }
