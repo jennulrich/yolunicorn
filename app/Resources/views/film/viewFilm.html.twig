@@ -25,5 +25,6 @@
         <video controls src="{{ path("film_video", {"id":film.id}) }}" height="400px" width="600px"></video>
     {% endif %}
     <p>{{ film.description }}</p>
+<a style="text-decoration: none; border-radius: 3px; color: white; padding: 10px; background-color:red;" href="{{ path('film_delete', {"id":film.id}) }}"> Delete </a>
 </body>
 </html>

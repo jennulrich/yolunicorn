@@ -93,6 +93,17 @@ class FilmController extends Controller
     }
 
     /**
+     * @Route("/films/{id}/delete", name="film_delete", requirements={"id"="\d+"})
+     */
+    public function DeleteAction(Film $film) {
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($film);
+        $em->flush();
+
+        return $this->redirectToRoute('film_list');
+    }
+
+    /**
      * @Route("/films/{id}/image", name="film_image", requirements={"id"="\d+"})
      */
     public function ImageViewAction($id) {
