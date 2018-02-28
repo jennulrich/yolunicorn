@@ -72,4 +72,28 @@ class GenreController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/genre/{id}/edit", name="genre_edit", requirements={"id"="\d+"})
+     */
+    public function EditAction($id, Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $addGenre = $em->getRepository(Genre:: class)
+            ->find($id);
+        $form = $this->createForm(GenreType::class, $addGenre);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $task = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($task);
+            $em->flush();
+            return $this->redirectToRoute('genre_list');
+        }
+
+        return $this->render('genre/editGenre.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
 }
