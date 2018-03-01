@@ -1,0 +1,59 @@
+body{
+    background-image: url('../image/popcorn.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    display: flex;
+}
+#titreConnexion{
+    text-align: center;
+    padding-bottom: 15Px;
+    font-weight: bold;
+}
+#btnInscription{
+    position: absolute;
+    margin: 10px;
+}
+#connexion{
+    z-index: 1;
+    margin: auto;
+    width: 40%;
+    opacity: 0.75;
+}
+
+.mail label, .password label {
+    width: 20%;
+}
+
+.mail input, .password input {
+    width: 75%;
+    padding: 8px;
+}
+
+.password {
+    margin-top: 10px;
+}
+
+.btn-center {
+    text-align: center;
+    margin-top: 15px;
+}
+.btn{
+    background-color: #EE2B47;
+    color: white;
+}
+#form_save{
+    background-color: #EE2B47;
+    color: white;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 4px;
+
+}
+.login {
+    background: white;
+    padding: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
