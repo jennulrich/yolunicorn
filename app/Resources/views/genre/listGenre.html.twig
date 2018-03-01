@@ -4,5 +4,11 @@
     <h1>Liste des Catégories</h1>
     {% for genre in genres %}
         <p>{{ genre.genreCat }}</p>
+        {% for film in genre.films %}
+            <h3><a style="text-decoration: none; border-radius: 3px; color:darkslateblue;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+        {% endfor %}
     {% endfor %}
+
+
+
 {% endblock %}

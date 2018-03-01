@@ -67,7 +67,7 @@ class Film
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank(message="Ajouter une vidéo (mp4)")
-     * @Assert\File(mimeTypes={ "video/mp4"})
+     * @Assert\File(mimeTypes={ "video/mp4", "image/jpeg"})
      */
     private $video;
 
