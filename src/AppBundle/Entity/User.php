@@ -64,6 +64,20 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_admin", type="boolean")
+     */
+    private $isAdmin;
+
+    /**
+     * User constructor.
+     */
+    public function __construct()
+    {
+        $this->isAdmin = false;
+    }
 
     /**
      * Get id
@@ -222,7 +236,14 @@ class User implements UserInterface
     //function UserInterface
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        //return ['ROLE_USER'];
+        $roles = ['ROLE_USER'];
+
+        if($this->isAdmin()) {
+           $roles[] = 'ROLE_ADMIN';
+        }
+
+        return $roles;
     }
 
 
@@ -240,5 +261,28 @@ class User implements UserInterface
     {
         return;
     }
-}
 
+    /**
+     * Set isAdmin.
+     *
+     * @param bool $isAdmin
+     *
+     * @return User
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get isAdmin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->isAdmin;
+    }
+}
