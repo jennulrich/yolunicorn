@@ -8,8 +8,12 @@ body{
 #titreConnexion{
     text-align: center;
     padding-bottom: 15Px;
+    font-weight: bold;
 }
-
+#btnInscription{
+    position: absolute;
+    margin: 10px;
+}
 #connexion{
     z-index: 1;
     margin: auto;

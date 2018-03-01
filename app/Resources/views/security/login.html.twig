@@ -14,8 +14,8 @@
     {% endblock %}
 </head>
 <body>
+<a href="{{ path('inscription') }}" ><button id="btnInscription" class="btn">Inscription</button></a>
     <div id="connexion">
-
         {% if error %}
             <div>{{ error.messageKey }}</div>
         {% endif %}
@@ -23,7 +23,7 @@
             <h3 id="titreConnexion">Yolunicorn </h3>
             <div class="mail">
                 <label for="username">Email</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                <input type="text" id="username" name="_username" />
             </div>
             <div class="password">
                 <label for="password">Mot de passe</label>
