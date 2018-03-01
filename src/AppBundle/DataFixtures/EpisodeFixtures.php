@@ -24,16 +24,18 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        for ($i=1; $i<=10; $i++) {
-            $saison = $this->getReference("saison-".$i);
-            for($j=1; $j<=15; $j++) {
-                $episode = new Episode();
-                $episode
-                    ->setSaison($saison)
-                    ->setName('Episode '.$j);
-            }
+        for ($k = 1; $k <= 6; $k++){
+            for ($i = 1; $i <= 10; $i++) {
+                $saison = $this->getReference("saison-".$k."-".$i);
+                for ($j = 1; $j <= 15; $j++) {
+                    $episode = new Episode();
+                    $episode
+                        ->setSaison($saison)
+                        ->setName('Episode ' . $j);
+                    $manager->persist($episode);
+                }
 
-            $manager->persist($episode);
+            }
         }
         $manager->flush();
     }
