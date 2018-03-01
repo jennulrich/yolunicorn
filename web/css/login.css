@@ -17,6 +17,8 @@ body{
 #connexion{
     z-index: 1;
     margin: auto;
+    width: 40%;
+    opacity: 0.75;
 }
 
 .mail label, .password label {
@@ -39,6 +41,15 @@ body{
 .btn{
     background-color: #EE2B47;
     color: white;
+}
+#form_save{
+    background-color: #EE2B47;
+    color: white;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 4px;
+
 }
 .login {
     background: white;
