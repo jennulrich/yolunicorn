@@ -18,7 +18,7 @@ class UserFixtures extends Fixture
                 ->setPrenom('Prenom user ' .$i)
                 ->setAge(mt_rand(18, 75))
                 ->setEmail('user'.$i.'@test.fr')
-                ->setPseudo('pseudo ' .$i)
+                ->setPseudo('pseudo ' .$i) 
 
                 // password : bcrypt('password')
                 ->setPassword( '$2y$10$LlPMShQH0oM1pYY1UvRCDuVI8Rin8bMhHoSgXinF48dqSsKdJ5LAa');
