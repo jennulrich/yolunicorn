@@ -36,6 +36,10 @@ class Saison
     private $serie;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Episode", mappedBy="saison") */
+    private $episodes;
+
+    /**
      * Get id
      *
      * @return int
@@ -46,7 +50,7 @@ class Saison
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSerie()
     {
@@ -77,6 +81,23 @@ class Saison
     public function setName(string $name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEpisodes()
+    {
+        return $this->episodes;
+    }
+
+    /**
+     * @param mixed $episodes
+     */
+    public function setEpisodes($episodes)
+    {
+        $this->episodes = $episodes;
+        return $this;
     }
 }
 

@@ -33,8 +33,11 @@ class SaisonFixtures extends Fixture implements DependentFixtureInterface
                $saison->setName('Saison ' . $j);
 
                $manager->persist($saison);
+               $this->setReference("saison-".$i."-".$j, $saison);
            }
         }
+
+
         $manager->flush();
     }
 
