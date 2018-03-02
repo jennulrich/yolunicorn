@@ -2,7 +2,7 @@
 
 {% block content %}
     <nav class="navbar-fixed-top">
-        <span style="color: white;">Bonjour</span>
+        <span style="color: white;">Bonjour {{ app.user.pseudo }}</span>
         <a href="{{ path('logout') }}">Déconnexion</a>
     </nav>
     <main class="container-fluid">
