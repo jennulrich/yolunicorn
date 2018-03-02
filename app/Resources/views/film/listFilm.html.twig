@@ -2,17 +2,25 @@
 
 {% block content %}
     <nav class="navbar-fixed-top">
+        <span style="color: white;">Bonjour</span>
         <a href="{{ path('logout') }}">Déconnexion</a>
     </nav>
     <main class="container-fluid">
+        <div class="row text-left">
+            <h2>Ajouts récents</h2>
+        </div>
         <div class="row">
             {% for film in films %}
-                <div class="col-md-3">
+                <div class="col-md-2 list-film" style="text-align: center;">
                     <img src="{{ path("film_image", {"id":film.id}) }}" alt="">
-                    <h3><a style="text-decoration: none; border-radius: 3px; color:darkslateblue;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+                    <h3 style="margin-top: 0"><a style="text-decoration: none;
+                    border-radius: 3px;
+                    color:darkslateblue;
+                    font-size: 12pt;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
                 </div>
             {% endfor %}
         </div>
+        <hr>
 
     </main>
 {% endblock %}
