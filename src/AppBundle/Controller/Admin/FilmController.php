@@ -41,6 +41,7 @@ class FilmController extends Controller
      */
     public function addAction(Request $request)
     {
+        $user = $this->getUser();
         $films = new Film();
 
         $form = $this->createForm(FilmType::class, $films);
@@ -56,7 +57,8 @@ class FilmController extends Controller
         }
 
         return$this->render('admin/addFilm.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

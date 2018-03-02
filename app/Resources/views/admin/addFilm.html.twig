@@ -1,8 +1,26 @@
-{% extends 'layout.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block content %}
-    <div style="margin-top: 60px;">
-        <h1>Ajouter un film :</h1>
-        {{ form(form) }}
+    <div class="add-form">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="row titre-acteur">
+            <div class="col-md-6 titre">{{ form_row(form.titre) }}</div>
+            <div class="col-md-6 acteur">{{ form_row(form.acteur) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 annee">{{ form_row(form.annee) }}</div>
+        </div>
+        <div class="description">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="genre">
+            {{ form_row(form.genres) }}
+        </div>
+
+        {{ form_row(form.image) }}
+        {{ form_row(form.video) }}
+        {{ form_end(form) }}
+        <button type="submit">Ajouter</button>
     </div>
 {% endblock %}
