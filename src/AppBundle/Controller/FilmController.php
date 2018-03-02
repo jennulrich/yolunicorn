@@ -20,11 +20,13 @@ class FilmController extends Controller
      */
     public function viewAction($id)
     {
+        $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $film = $em->getRepository(Film::class)
             ->find($id);
         return $this->render('film/viewFilm.html.twig', [
-            'film' =>$film
+            'film' =>$film,
+            'user' =>$user
         ]);
     }
 
