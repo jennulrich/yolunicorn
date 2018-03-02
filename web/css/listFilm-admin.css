@@ -1,0 +1,55 @@
+/***************************** TABLEAU LISTE DES FILMS *****************************/
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+h2 { padding-left: 15px; }
+
+div a.ajout-film {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #66bc71;
+    border-radius: 3px;
+}
+
+.listfilm {
+    width: 75%;
+    display: inline-block;
+    margin-left: 40px;
+    position: relative;
+    left: 20%;
+}
+
+tr th:first-child, tr th:nth-child(3) { width: 16%; }
+tr th:nth-child(2) { width: 8%; }
+tr th:nth-child(4) { width: 30%; }
+tr th:last-child { width: 6%; }
+
+span.icon-edit:before {
+    font-family: 'Glyphicons Halflings', sans-serif;
+    content:"\e065";
+    padding: 0 3px;
+}
+
+span.icon-trash:before {
+    font-family: 'Glyphicons Halflings', sans-serif;
+    content:"\e020";
+    padding: 0 3px;
+}
+
+span.icon-plus:before {
+    font-family: 'Glyphicons Halflings', sans-serif;
+    content:"\2b";
+    padding-right: 3px;
+}
+
+td.edit {
+    text-align: center;
+}
+
+td.edit a {
+    text-decoration: none;
+}

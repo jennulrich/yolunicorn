@@ -8,16 +8,17 @@
     <title>Document</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/listFilm.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/addFilm-admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/listFilm-admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/home-admin.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
     {% endblock %}
 </head>
 <body>
-{ {% include'header.html.twig' %}
-<div class="sidebar" style="width: 20%; background-color: black">
-    {{ render(controller('AppBundle:User:menu')) }}}
-</div>
+{ {% include':admin:sidenav.html.twig' %}
 {% block content"" %}
+</main>
 </body>
 </html>

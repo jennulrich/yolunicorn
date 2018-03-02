@@ -1,0 +1,56 @@
+div.add-form {
+    width: 50%;
+    display: inline-block;
+    margin-left: 40px;
+    position: relative;
+    left: 30%;
+}
+
+.titre-acteur {
+    margin-bottom: 15px;
+}
+
+.titre div label, .acteur div label {
+    padding-right: 15px;
+}
+
+.titre div input, .acteur div input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+
+#film_annee {
+    display: inline-block;
+    padding-left: 15px;
+}
+
+#film_annee_time {
+    display: none;
+}
+
+#film_annee_date {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.description div label {
+    display: block;
+}
+
+#film_description {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+
+#film_genres {
+    margin-bottom: 15px;
+}
+
+#film_genres label {
+    padding: 0 0 0 5px;
+}
