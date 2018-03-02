@@ -1,18 +1,8 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Détail {{ serie.titre }}</title>
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
-    {% endblock %}
-</head>
-<body>
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div style="margin-top: 60px;">
+    <a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('serie_list') }}">Retour à la liste des series</a>
     <h1>{{ serie.titre }}</h1>
     <p>{{ serie.annee|date("d/m/Y") }}</p>
     {% for genre in serie.genres %}
@@ -25,8 +15,7 @@
     <p>Nombre d'episodes : {{ saison.episodes|length }}</p>
     {% endfor %}
 
-    <a href="{{ path('serie_list') }}">Retour à la liste des series</a>
     <br>
-    <a href="{{ path('serie_delete', {"id":serie.id}) }}">Delete</a>
-</body>
-</html>
+    <a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('serie_delete', {"id":serie.id}) }}">Delete</a>
+</div>
+{% endblock %}

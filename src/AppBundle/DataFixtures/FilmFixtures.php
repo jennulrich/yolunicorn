@@ -85,6 +85,7 @@ class FilmFixtures extends Fixture
                 "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
         ];
+        $i=0;
         foreach ($films as $film){
             $filmInfo = new Film();
             $filmInfo
@@ -96,6 +97,9 @@ class FilmFixtures extends Fixture
                 ->setImage($film['image']);
 
             $manager->persist($filmInfo);
+
+            $this->setReference("film-" . $i, $filmInfo);
+            $i++;
         }
         $manager->flush();
     }

@@ -1,13 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div style="margin-top: 60px;">
+        <a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('user_list') }}">Retour aux utilisateurs</a>
     <h1>Info USer :</h1>
         <p>{{ user.nom }}</p>
         <p>{{ user.prenom }}</p>
@@ -15,10 +10,10 @@
         <p>Email : {{ user.email }}</p>
         <p>{{ user.pseudo }}</p>
 
-    <a href="{{ path('user_edit', {"id":user.id}) }}">Modifier mes informations</a>
+    <a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('user_edit', {"id":user.id}) }}">Modifier mes informations</a>
 
     <p>Suppression pour la partie admin uniquement</p>
 
-    <a href="{{ path('user_delete', {"id":user.id}) }}">Delete</a>
-</body>
-</html>
+    <a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('user_delete', {"id":user.id}) }}">Delete</a>
+    </div>
+{% endblock %}

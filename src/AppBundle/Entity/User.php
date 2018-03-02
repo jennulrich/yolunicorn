@@ -72,6 +72,11 @@ class User implements UserInterface
     private $isAdmin;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", inversedBy="user")
+     */
+    private $films;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -284,5 +289,49 @@ class User implements UserInterface
     public function isAdmin()
     {
         return $this->isAdmin;
+    }
+
+    /**
+     * Get isAdmin
+     *
+     * @return boolean
+     */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * Add film
+     *
+     * @param \AppBundle\Entity\Film $film
+     *
+     * @return User
+     */
+    public function addFilm(\AppBundle\Entity\Film $film)
+    {
+        $this->films[] = $film;
+
+        return $this;
+    }
+
+    /**
+     * Remove film
+     *
+     * @param \AppBundle\Entity\Film $film
+     */
+    public function removeFilm(\AppBundle\Entity\Film $film)
+    {
+        $this->films->removeElement($film);
+    }
+
+    /**
+     * Get films
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFilms()
+    {
+        return $this->films;
     }
 }

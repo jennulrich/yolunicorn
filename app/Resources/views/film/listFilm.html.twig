@@ -1,10 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <nav class="navbar-fixed-top">
-        <span style="color: white;">Bonjour {{ app.user.pseudo }}</span>
-        <a href="{{ path('logout') }}">Déconnexion</a>
-    </nav>
     <main class="container-fluid">
         <div class="row text-left">
             <h2>Ajouts récents</h2>
@@ -13,14 +9,14 @@
             {% for film in films %}
                 <div class="col-md-2 list-film" style="text-align: center;">
                     <img src="{{ path("film_image", {"id":film.id}) }}" alt="">
-                    <h3 style="margin-top: 0"><a style="text-decoration: none;
+                    <h2 style="margin-top: 0"><a style="text-decoration: none;
                     border-radius: 3px;
                     color:darkslateblue;
-                    font-size: 12pt;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+                    font-size: 12pt;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h2>
+                    <a href="{{ path('ajout_list', {"id":film.id}) }}"><button class="btn" style="background-color: #EE2B47; color: white;"> Ajouter à ma liste</button></a>
                 </div>
             {% endfor %}
         </div>
         <hr>
-
     </main>
 {% endblock %}
