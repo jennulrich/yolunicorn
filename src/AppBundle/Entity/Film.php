@@ -56,6 +56,11 @@ class Film
     private $genres;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="films")
+     */
+    private $users;
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Ajouter une image jpg")
@@ -251,5 +256,39 @@ class Film
     public function removeGenre(\AppBundle\Entity\Genre $genre)
     {
         return $this->genres->removeElement($genre);
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Film
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

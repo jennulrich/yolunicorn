@@ -1,19 +1,7 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
-    {% endblock %}
-</head>
-<body>
-<a style="background-color: black;  padding:10px; text-decoration: none; color:white;" href="{{ path('film_list') }}"> < Retour aux Films</a>
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<a class="btn" style="background-color: #EE2B47; color: white; margin-top: 55px;" href="{{ path('film_list') }}"> Retour aux Films</a>
     <h1>{{ film.titre }}</h1>
     <p>{{ film.annee|date("d/m/Y") }}</p>
     {% for genre in film.genres %}
@@ -21,11 +9,9 @@
     {% endfor %}
     <p><strong>Acteurs : </strong>{{ film.acteur }}</p>
     {% if film.image is not null %}
-        <img src="{{ path("film_image", {"id":film.id}) }}" height="100px" width="250px" alt="{{ film.titre }}">
-        <video controls src="{{ path("film_video", {"id":film.id}) }}" height="400px" width="600px"></video>
+        <div class="col-lg-3"><img src="{{ path("film_image", {"id":film.id}) }}" height="400px" width="250px" alt="{{ film.titre }}"></div>
+        <div class="col-lg-9"><video controls src="{{ path("film_video", {"id":film.id}) }}" height="400px" width="600px"></video></div>
     {% endif %}
     <p>{{ film.description }}</p>
-<a style="text-decoration: none; border-radius: 3px; color: white; padding: 10px; background-color:red;" href="{{ path('film_delete', {"id":film.id}) }}"> Delete </a>
-
-</body>
-</html>
+<a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('film_delete', {"id":film.id}) }}"> Delete </a>
+{% endblock %}

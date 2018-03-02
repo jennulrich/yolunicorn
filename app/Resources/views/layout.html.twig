@@ -16,6 +16,10 @@
 <body>
 {# {% include'header.html.twig' %}
 {{ render(controller('AppBundle:User:menu')) }}#}
+<nav class="navbar-fixed-top">
+    <span style="color: white;">Bonjour {{ app.user.pseudo }}</span>
+    <a href="{{ path('logout') }}">Déconnexion</a>
+</nav>
 {% block content"" %}
 </body>
 </html>
