@@ -6,11 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/listFilm.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+    {% endblock %}
 </head>
 <body>
-{% include'header.html.twig' %}
-{#{{ render(controller('AppBundle:User:menu')) }}#}
-
+{# {% include'header.html.twig' %}
+{{ render(controller('AppBundle:User:menu')) }}#}
 {% block content"" %}
 </body>
 </html>
