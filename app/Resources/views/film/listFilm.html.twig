@@ -13,7 +13,7 @@
                     border-radius: 3px;
                     color:darkslateblue;
                     font-size: 12pt;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h2>
-                    <button class="btn" type="submit" style="background-color: #EE2B47; color: white;">Ajouter à ma liste</button>
+                    <a href="{{ path('ajout_list', {"id":film.id}) }}"><button class="btn" style="background-color: #EE2B47; color: white;"> Ajouter à ma liste</button></a>
                 </div>
             {% endfor %}
         </div>

@@ -3,8 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Film;
+use AppBundle\Entity\User;
 use AppBundle\Form\FilmType;
 use AppBundle\Manager\FilmManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
@@ -152,5 +155,23 @@ class FilmController extends Controller
             //'acteurs'=> $acteurs,
             'form' => $form->createView()
         ]);
+    }
+
+    //Ajouter a ma liste de regarder plus tard
+    /**
+     * @Route("/films/{id}/favoris", name="ajout_list", requirements={"id"="\d+"})
+     */
+    public function FavorisAction(EntityManagerInterface $entityManager, $id)
+    {
+        /** @var Film $film */
+        $film = $entityManager->getRepository(Film::class)
+            ->find($id);
+        /** @var User $user */
+        $user = $this->getUser();
+        $user->addFilm($film);
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('film_list');
     }
 }
