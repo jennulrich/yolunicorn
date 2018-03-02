@@ -43,6 +43,15 @@ class CreateUserCommand extends Command
         $output->writeln([
                 "<fg=white;bg=green>Create user</>\n",
                 "=<fg=magenta>**</>=u=n=i=c=o=r=n=<fg=magenta>**</>=",
+                "<fg=magenta>                   n",
+                "<fg=magenta>        |\   |  or",
+                "<fg=magenta>       _| \-/ic",
+                "<fg=magenta>      /    un",
+                "<fg=magenta>    //    ~ + \</>",
+                "<fg=magenta>   //         |</>",
+                "<fg=magenta>  //    \      \</>",
+                "<fg=magenta> |||     | .  .|</>",
+                "<fg=magenta>///     / \___/</>",
                 "",
             ]);
         $output->writeln("<fg=white;bg=blue>Whoaaaaa !</>\n");

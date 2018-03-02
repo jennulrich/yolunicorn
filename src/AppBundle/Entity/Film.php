@@ -186,14 +186,6 @@ class Film
     }
 
     /**
-     * @param mixed $genres
-     */
-    public function setGenres($genres)
-    {
-        $this->genres = $genres;
-    }
-
-    /**
      * @return mixed
      */
     public function getImage()
@@ -227,5 +219,37 @@ class Film
         return $this;
     }
 
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add genre.
+     *
+     * @param \AppBundle\Entity\Genre $genre
+     *
+     * @return Film
+     */
+    public function addGenre(\AppBundle\Entity\Genre $genre)
+    {
+        $this->genres[] = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Remove genre.
+     *
+     * @param \AppBundle\Entity\Genre $genre
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeGenre(\AppBundle\Entity\Genre $genre)
+    {
+        return $this->genres->removeElement($genre);
+    }
+}

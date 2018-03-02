@@ -43,3 +43,10 @@ services:
     AppBundle\Service\FileUpload:
         arguments:
             $targetDir: '%files_directory%'
+
+    console_command.csv_import:
+        class: AppBundle\Command\CsvImportCommand
+        arguments:
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - {name: console.command}
