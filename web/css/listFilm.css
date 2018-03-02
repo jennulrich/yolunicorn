@@ -1,0 +1,23 @@
+main {
+    padding-top: 50px;
+}
+
+nav {
+    height: 40px;
+    background-color: black;
+    text-align: right;
+
+}
+
+nav.navbar-fixed-top a {
+    color: white;
+    font-weight: lighter;
+    line-height: 40px;
+    padding: 15px 15px 12px 15px;
+    text-decoration: none;
+    background-color: #EE2B47;
+}
+
+.list-film img {
+    width: 100%;
+}

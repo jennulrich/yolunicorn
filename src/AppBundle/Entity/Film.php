@@ -56,15 +56,15 @@ class Film
     private $genres;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Ajouter une image jpg")
-     * @Assert\File(mimeTypes={ "image/jpeg"})
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/png"})
      */
     private $image;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Ajouter une vidéo (mp4)")
      * @Assert\File(mimeTypes={ "video/mp4", "image/jpeg"})

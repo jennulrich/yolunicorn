@@ -25,13 +25,17 @@ class FilmFixtures extends Fixture
                 "description"=>"Privé de son puissant marteau, Thor est retenu prisonnier sur une lointaine planète aux confins de l'univers.
                 Pour sauver Asgard, il va devoir lutter contre le temps afin d'empêcher l'impitoyable Hela d'accomplir le Ragnarök 
                 – la destruction de son monde et la fin de la civilisation asgardienne. Mais pour y parvenir, il va d'abord devoir mener
-                 un combat titanesque de gladiateurs contre celui qui était autrefois son allié au sein des Avengers : l'incroyable Hulk…"
+                 un combat titanesque de gladiateurs contre celui qui était autrefois son allié au sein des Avengers : l'incroyable Hulk…",
+                "image"=>"a87402e0d76f6294e368dea8fbc70e61.jpeg",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
             [
                 "titre"=>"Interview",
                 "annee"=>"2015-05-12",
                 "acteur"=>"James Franco, Seth Rogen, Lizzy Caplan",
-                "description"=>"Un animateur de talk show et son producteur se retrouvent impliqués dans un complot meurtrier à l'échelle internationale."
+                "description"=>"Un animateur de talk show et son producteur se retrouvent impliqués dans un complot meurtrier à l'échelle internationale.",
+                "image"=>"ab333b9abc8635cad838e5705bb28e66.png",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
             [
                 "titre"=>"Conjuring",
@@ -40,7 +44,9 @@ class FilmFixtures extends Fixture
                 "description"=>"Avant Amityville, il y avait Harrisville… Conjuring : Les dossiers Warren, raconte l'histoire horrible, mais vraie,
                  d'Ed et Lorraine Warren, enquêteurs paranormaux réputés dans le monde entier, venus en aide à une famille terrorisée par une présence
                  inquiétante dans leur ferme isolée… Contraints d'affronter une créature démoniaque d'une force redoutable, les Warren se retrouvent 
-                 face à l'affaire la plus terrifiante de leur carrière…"
+                 face à l'affaire la plus terrifiante de leur carrière…",
+                "image"=>"1d9484fba9aafbe0fbf2d98be7f6c41a.png",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
             [
                 "titre"=>"La ligne Verte",
@@ -49,7 +55,9 @@ class FilmFixtures extends Fixture
                 "description"=>"Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. Gardien-chef du 
                 pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des exécutions capitales en s'efforçant 
                 d'adoucir les derniers moments des condamnés. Parmi eux se trouvait un colosse du nom de John Coffey, accusé du viol et du 
-                meurtre de deux fillettes. Intrigué par cet homme candide et timide aux dons magiques, Edgecomb va tisser avec lui des liens très forts."
+                meurtre de deux fillettes. Intrigué par cet homme candide et timide aux dons magiques, Edgecomb va tisser avec lui des liens très forts.",
+                "image"=>"e8b120c06bf2e91fbc37e5cb14461abc.png",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
             [
                 "titre"=>"Le Parrain",
@@ -61,7 +69,9 @@ class FilmFixtures extends Fixture
                 Afin de traiter avec Sonny, Sollozzo tente de faire tuer Don Vito, mais celui-ci en réchappe. Michael, le frère cadet de Sonny, recherche alors 
                 les commanditaires de l'attentat et tue Sollozzo et le chef de la police, en représailles.
                 Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et 
-                se prépare à devenir le successeur de son père..."
+                se prépare à devenir le successeur de son père...",
+                "image"=>"parrain2.png",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
             [
                 "titre"=>"Fight Club",
@@ -70,7 +80,9 @@ class FilmFixtures extends Fixture
                 "description"=>"Le narrateur, sans identité précise, vit seul, travaille seul, dort seul, mange seul ses plateaux-repas pour une personne comme 
                 beaucoup d'autres personnes seules qui connaissent la misère humaine, morale et sexuelle. C'est pourquoi il va devenir membre du Fight club, 
                 un lieu clandestin ou il va pouvoir retrouver sa virilité, l'échange et la communication. Ce club est dirigé par Tyler Durden, une sorte d'anarchiste 
-                entre gourou et philosophe qui prêche l'amour de son prochain."
+                entre gourou et philosophe qui prêche l'amour de son prochain.",
+                "image"=>"fight.png",
+                "video"=>"92e0eb5f125aa2b59a788674b8ca461c.mp4"
             ],
         ];
         foreach ($films as $film){
@@ -79,7 +91,9 @@ class FilmFixtures extends Fixture
                 ->setTitre($film['titre'])
                 ->setAnnee(new \DateTime($film['annee']))
                 ->setActeur($film['acteur'])
-                ->setDescription($film['description']);
+                ->setDescription($film['description'])
+                ->setVideo($film['video'])
+                ->setImage($film['image']);
 
             $manager->persist($filmInfo);
         }

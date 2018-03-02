@@ -22,11 +22,17 @@ class Episode
     private $id;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="nb_episode", type="float")
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $nbEpisode;
+    private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Saison", inversedBy="episodes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $saison;
 
 
     /**
@@ -40,27 +46,50 @@ class Episode
     }
 
     /**
-     * Set nbEpisode
+     * Set name
      *
-     * @param float $nbEpisode
+     * @param string $name
      *
      * @return Episode
      */
-    public function setNbEpisode($nbEpisode)
+    public function setName($name)
     {
-        $this->nbEpisode = $nbEpisode;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get nbEpisode
+     * Get name
      *
-     * @return float
+     * @return string
      */
-    public function getNbEpisode()
+    public function getName()
     {
-        return $this->nbEpisode;
+        return $this->name;
+    }
+
+    /**
+     * Get saison
+     *
+     * @return string
+     */
+    public function getSaison()
+    {
+        return $this->saison;
+    }
+
+    /**
+     * Set saison
+     *
+     * @param string $saisons
+     *
+     * @return Episode
+     */
+    public function setSaison($saison)
+    {
+        $this->saison = $saison;
+        return $this;
     }
 }
 
