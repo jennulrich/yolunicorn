@@ -32,6 +32,22 @@ class FilmController extends Controller
         ]);
     }
 
+    // Affiche le détail d'un film à l'admin
+    /**
+     * @Route("/admin/films/{id}", name="film_view_admin", requirements={"id"="\d+"})
+     */
+    public function viewAction($id)
+    {
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $film = $em->getRepository(Film::class)
+            ->find($id);
+        return $this->render('admin/viewFilm.html.twig', [
+            'film' =>$film,
+            'user' =>$user
+        ]);
+    }
+
     // Ajouter un film
     /**
      * @Route("/admin/films/add", name="film_add")
