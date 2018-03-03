@@ -65,6 +65,7 @@ class FilmController extends Controller
      */
     public function EditAction($id, Request $request)
     {
+        $user = $this->getUser();
         $em=$this->getDoctrine()->getManager();
         $addFilm = $em->getRepository(Film:: class)
             ->find($id);
@@ -78,11 +79,12 @@ class FilmController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($task);
             $em->flush();
-            return $this->redirectToRoute('film_list');
+            return $this->redirectToRoute('admin_film_list');
         }
 
         return $this->render('admin/editFilm.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 
@@ -96,7 +98,7 @@ class FilmController extends Controller
         $em->remove($film);
         $em->flush();
 
-        return $this->redirectToRoute('film_list');
+        return $this->redirectToRoute('admin_film_list');
     }
 
     // Uploader une image

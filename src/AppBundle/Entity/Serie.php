@@ -50,7 +50,7 @@ class Serie
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="serie")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="series")
      */
     private $genres;
 
