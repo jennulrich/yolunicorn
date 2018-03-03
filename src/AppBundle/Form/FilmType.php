@@ -18,7 +18,7 @@ class FilmType extends AbstractType
     {
         $builder
             ->add('titre',TextType::class)
-            ->add('annee', DateTimeType::class)
+            ->add('annee', DateTimeType::class, array('label' => 'Année'))
             ->add('acteur', TextType::class)
             ->add('description',TextareaType::class)
             ->add('genres', EntityType::class,  [
@@ -27,8 +27,7 @@ class FilmType extends AbstractType
                     'expanded' => true,
                     'multiple' => true
                 ])
-            ->add('image', FileType::class, array('label' => 'Image(JPG)'))
-            ->add('video', FileType::class, array('label' => 'Video(MP4)'))
-            ->add('save', SubmitType::class, ['label' => 'Ajouter un Film']);
+            ->add('image', FileType::class, array('label' => 'Image (.jpeg)'))
+            ->add('video', FileType::class, array('label' => 'Video (.mp4)'));
     }
 }

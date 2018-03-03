@@ -131,14 +131,4 @@ class UserController extends Controller
 
         return $this->redirectToRoute('user_list');
     }
-
-    //Test Atelier Geoffrey
-    public function menuAction()
-    {
-        $menus = ["menu 1", "menu 2", "menu 3"];
-
-        return $this->render('menu.html.twig', [
-            'menus' =>$menus
-        ]);
-    }
 }
