@@ -27,7 +27,7 @@ class FilmType extends AbstractType
                     'expanded' => true,
                     'multiple' => true
                 ])
-            ->add('image', FileType::class, array('label' => 'Image(JPG)'))
-            ->add('video', FileType::class, array('label' => 'Video(MP4)'));
+            ->add('image', FileType::class, array('label' => 'Image (.jpeg)'))
+            ->add('video', FileType::class, array('label' => 'Video (.mp4)'));
     }
 }

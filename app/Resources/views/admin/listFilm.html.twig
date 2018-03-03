@@ -3,14 +3,14 @@
 {% block content %}
         <div class="listfilm">
             <div class="row text-left">
-                <h2 class="col-md-6">Liste des films</h2>
+                <h2 class="col-md-6"><span class="icon-film"></span>Liste des films</h2>
                 <div class="col-md-6" style="text-align: right">
                     <a href="{{ path('film_add') }}" class="ajout-film"><span class="icon-plus"></span>Ajouter un film</a>
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead>
+                <table class="table table-bordered table-hover" style="background-color: white">
+                    <thead style="background-color: #2c2f43; color: #b5b4c2">
                     <tr>
                         <th scope="col">Titre</th>
                         <th scope="col">Sortie</th>
@@ -26,8 +26,9 @@
                             <td>{{ film.annee|date("d/m/Y") }}</td>
                             <td>{{ film.acteur }}</td>
                             <td>{{ film.description|truncate(200, true, '...') }}</td>
-                            <td class="edit"><a href="{{ path('film_edit', {"id":film.id}) }}"><span class="icon-edit"></span></a>
-                                <a href="{{ path('film_delete', {"id":film.id}) }}"><span class="icon-trash"></span></a></td>
+                            <td class="edit"><a href="{{ path('film_edit', {"id":film.id}) }}" title="Editer"><span class="icon-edit"></span></a>
+                                <a href="{{ path('film_delete', {"id":film.id}) }}" title="Supprimer"><span class="icon-trash"></span></a>
+                                <a href="{{ path('film_view', {"id":film.id}) }}" title="Détail"><span class="icon-view"></span></a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

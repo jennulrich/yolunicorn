@@ -23,10 +23,11 @@ div a.ajout-film {
     left: 20%;
 }
 
-tr th:first-child, tr th:nth-child(3) { width: 16%; }
+tr th:first-child { width: 12%; }
+tr th:nth-child(3) { width: 16%; }
 tr th:nth-child(2) { width: 8%; }
 tr th:nth-child(4) { width: 30%; }
-tr th:last-child { width: 6%; }
+tr th:last-child { width: 10%; }
 
 span.icon-edit:before {
     font-family: 'Glyphicons Halflings', sans-serif;
@@ -44,6 +45,19 @@ span.icon-plus:before {
     font-family: 'Glyphicons Halflings', sans-serif;
     content:"\2b";
     padding-right: 3px;
+}
+
+span.icon-film:before {
+    font-family: 'Glyphicons Halflings', sans-serif;
+    content:"\e009";
+    padding-right: 5px;
+    font-size: 18pt;
+}
+
+span.icon-view:before {
+    content:"\e105";
+    font-family: 'Glyphicons Halflings', sans-serif;
+    padding: 0 3px;
 }
 
 td.edit {

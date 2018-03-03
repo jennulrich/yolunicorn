@@ -1,7 +1,11 @@
 {% extends 'admin/layout.html.twig' %}
 
 {% block content %}
+
     <div class="add-form">
+        <div class="row text-left">
+            <h2 class="col-md-6 form-ajout">Ajout de film</h2>
+        </div>
         {{ form_start(form) }}
         {{ form_errors(form) }}
         <div class="row titre-acteur">
@@ -17,10 +21,13 @@
         <div class="genre">
             {{ form_row(form.genres) }}
         </div>
-
-        {{ form_row(form.image) }}
-        {{ form_row(form.video) }}
+        <div class="image">
+            {{ form_row(form.image) }}
+        </div>
+        <div class="video">
+            {{ form_row(form.video) }}
+        </div>
         {{ form_end(form) }}
-        <button type="submit">Ajouter</button>
+        <button type="submit" class="btn btn-info" id="add-button">Ajouter</button>
     </div>
 {% endblock %}

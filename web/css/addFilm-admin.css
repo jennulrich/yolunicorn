@@ -4,6 +4,10 @@ div.add-form {
     margin-left: 40px;
     position: relative;
     left: 30%;
+    border: 1px solid lightgray;
+    padding: 25px;
+    background-color: white;
+    border-radius: 3px;
 }
 
 .titre-acteur {
@@ -54,3 +58,17 @@ div.add-form {
 #film_genres label {
     padding: 0 0 0 5px;
 }
+
+.image, .video {
+    margin-bottom: 15px;
+}
+
+h2.form-ajout {
+    margin: 0 0 15px 0;
+}
+
+button#add-button {
+    background-color: #EE2B47;
+    border: none;
+}
+
