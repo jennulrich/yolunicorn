@@ -2,16 +2,19 @@
 
 {% block content %}
 <a class="btn" style="background-color: #EE2B47; color: white; margin-top: 55px;" href="{{ path('film_list') }}"> Retour aux Films</a>
-    <h1>{{ film.titre }}</h1>
-    <p>{{ film.annee|date("d/m/Y") }}</p>
-    {% for genre in film.genres %}
-        <p><strong>Genre :</strong> {{ genre.genreCat }}</p>
-    {% endfor %}
-    <p><strong>Acteurs : </strong>{{ film.acteur }}</p>
-    {% if film.image is not null %}
-        <div class="col-lg-3"><img src="{{ path("film_image", {"id":film.id}) }}" height="400px" width="250px" alt="{{ film.titre }}"></div>
-        <div class="col-lg-9"><video controls src="{{ path("film_video", {"id":film.id}) }}" height="400px" width="600px"></video></div>
-    {% endif %}
-    <p>{{ film.description }}</p>
-<a class="btn" style="background-color: #EE2B47; color: white;" href="{{ path('film_delete', {"id":film.id}) }}"> Delete </a>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-2 col-lg-5 col-lg-offset-2">
+            <h1 id="titreFilm">{{ film.titre }}</h1>
+            <p><strong>Date de sortie : </strong>{{ film.annee|date("d/m/Y") }}</p>
+            {% for genre in film.genres %}
+                <p><strong>Genre :</strong> {{ genre.genreCat }}</p>
+            {% endfor %}
+            <p><strong>Avec : </strong>{{ film.acteur }}</p>
+            <p id="description">{{ film.description }}</p>
+        </div>
+        {% if film.image is not null %}
+            <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"><img src="{{ path("film_image", {"id":film.id}) }}" height="400px" width="250px" alt="{{ film.titre }}"></div>
+            <div class="col-md-12 col-lg-12 videoFilm"><video controls src="{{ path("film_video", {"id":film.id}) }}" height="500px" width="100%"></video></div>
+        {% endif %}
+    </div>
 {% endblock %}

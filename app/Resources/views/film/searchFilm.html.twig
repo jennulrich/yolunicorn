@@ -5,6 +5,9 @@
         {{ form(form) }}
     </div>
     {% for film in films %}
-        {{ film.titre }}
+        <div class="col-md-2 list-film" style="text-align: center; padding-top: 30px;">
+            <img src="{{ path("film_image", {"id":film.id}) }}"  alt="">
+            <h3><a style="text-decoration: none; border-radius: 3px; color:darkslateblue;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+        </div>
     {% endfor %}
 {% endblock %}

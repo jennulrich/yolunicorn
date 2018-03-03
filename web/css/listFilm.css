@@ -6,18 +6,75 @@ nav {
     height: 40px;
     background-color: black;
     text-align: right;
-
 }
 
-nav.navbar-fixed-top a {
+nav.navbar-fixed-top a.deconnexion {
     color: white;
     font-weight: lighter;
-    line-height: 40px;
-    padding: 15px 15px 12px 15px;
+    padding: 10px;
     text-decoration: none;
     background-color: #EE2B47;
+    float: right;
 }
-
+span.pseudo{
+    color: white;
+    padding: 10px;
+}
 .list-film img {
     width: 100%;
+}
+
+/*CSS de la page viewFilm.html.twig*/
+#titreFilm{
+    padding-bottom: 20px;
+    color: #34374C;
+}
+#description{
+    text-align: justify;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.videoFilm{
+    background-color: black;
+    margin-top: 30px;
+}
+.conteneurNav{
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+    width: 600px;
+    padding-top: 10px;
+}
+a.lienNav {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+a.lienNav:first-child{
+    color: #EE2B47;
+    font-weight: lighter;
+
+}
+a.lienNav:hover {
+    text-decoration: none;
+    color: #EE2B47;
+}
+
+/*page Search*/
+input#form_search{
+    width: 75%;
+    padding: 8px;
+    margin-left: 20px;
+}
+button#form_submit{
+    background-color: #EE2B47;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-left: 6.3%;
+    margin-top: 20px;
 }
