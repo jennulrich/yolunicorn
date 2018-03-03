@@ -9,11 +9,8 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Film;
 use AppBundle\Form\FilmType;
-use AppBundle\Manager\FilmManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -53,7 +50,7 @@ class FilmController extends Controller
             $em->persist($task);
             $em->flush();
 
-            return $this->redirectToRoute('film_list');
+            return $this->redirectToRoute('admin_film_list');
         }
 
         return$this->render('admin/addFilm.html.twig', [
