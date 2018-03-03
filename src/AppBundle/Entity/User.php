@@ -72,7 +72,7 @@ class User implements UserInterface
     private $isAdmin;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", inversedBy="users")
      */
     private $films;
 
