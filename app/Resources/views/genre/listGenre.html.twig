@@ -1,13 +1,20 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Liste des Catégories</h1>
-    {% for genre in genres %}
-        <p>{{ genre.genreCat }}</p>
-        {% for film in genre.films %}
-            <h3><a style="text-decoration: none; border-radius: 3px; color:darkslateblue;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+    <div style="margin-top: 55px;">
+        <h1 id="titreFilm">Liste de film par catégorie :</h1>
+        {% for genre in genres %}
+            <div style="height: 400px;" class="col-md-12">
+            <h2><strong>{{ genre.genreCat }}</strong></h2>
+            {% for film in genre.films %}
+                <div class="col-md-2 list-film" style="text-align: center;">
+                <img src="{{ path("film_image", {"id":film.id}) }}"  alt="">
+                <h3><a style="text-decoration: none; border-radius: 3px; color:darkslateblue;" href="{{ path('film_view', {'id': film.id}) }}"> {{ film.titre }} </a></h3>
+                </div>
+            {% endfor %}
+            </div>
         {% endfor %}
-    {% endfor %}
+    </div>
 
 
 

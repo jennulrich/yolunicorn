@@ -17,8 +17,15 @@
 {# {% include'header.html.twig' %}
 {{ render(controller('AppBundle:User:menu')) }}#}
 <nav class="navbar-fixed-top">
-    <span style="color: white;">Bonjour {{ app.user.pseudo }}</span>
-    <a href="{{ path('logout') }}">Déconnexion</a>
+    <div class="conteneurNav">
+        <a class="lienNav" href="{#{{ path('user_view', {"id":user.id}) }}#}">Mon compte</a>
+        <a class="lienNav" href="{{ path('film_list') }}">Films</a>
+        <a class="lienNav" href="{{ path('serie_list') }}">Série</a>
+        <a class="lienNav" href="{{ path('genre_list') }}">Genre</a>
+        <a class="lienNav" href="{{ path('film_search') }}">Recherche</a>
+    </div>
+    <span class="pseudo">Bonjour {{ app.user.pseudo }}</span>
+    <a class="deconnexion" href="{{ path('logout') }}">Déconnexion</a>
 </nav>
 {% block content"" %}
 </body>
